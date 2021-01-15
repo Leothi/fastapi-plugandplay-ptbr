@@ -1,7 +1,5 @@
 from loguru import logger
 
-from fastapi.responses import JSONResponse
-
 
 def string_upper(string: str) -> str:
     """Transforma a mensagem para upper case.

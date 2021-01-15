@@ -1,11 +1,10 @@
 import sys
 
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 from loguru import logger
 from starlette.middleware.cors import CORSMiddleware
 
-from api.routes import mensagem, math, usuario, documentacao
+from api.routes import exemplo
 from api.models import DEFAULT_RESPONSES_JSON
 from api.modules.default.middleware import Middleware
 from api.exceptions import ExceptionHandler
@@ -34,7 +33,7 @@ logger.add("./logs/teste.log", level=0, format=envs.LOGURU_FORMAT, rotation='500
 logger.add("./logs/teste_error.log", level=40, format=envs.LOGURU_FORMAT, rotation='500.MB')
 
 # Instância API
-app = FastAPI(title='API de teste', description="Api para treinamento de FastAPI",
+app = FastAPI(title='API Plug and Play', description="API para criação rápida de projetos usando FastAPI.",
               version=__version__)
 
 # CORS
