@@ -27,5 +27,3 @@ services:
 networks:
   backend:
     driver: bridge
-volumes:
-  full_api.api-mongodb_volume:
