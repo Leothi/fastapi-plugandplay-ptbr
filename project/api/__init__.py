@@ -17,7 +17,7 @@ logger.configure(
     handlers=[
         {
             "sink": sys.stdout,
-            "level": 10,
+            "level": envs.LOG_LEVEL,
             "format": envs.LOGURU_FORMAT
         }
     ]
@@ -30,11 +30,13 @@ logger.level('LOG ROTA', no=39, color="<light-green>")
 
 # Saída para arquivo logger
 logger.add("./logs/teste.log", level=0, format=envs.LOGURU_FORMAT, rotation='500 MB')
-logger.add("./logs/teste_error.log", level=40, format=envs.LOGURU_FORMAT, rotation='500.MB')
+logger.add("./logs/teste_error.log", level=40, format=envs.LOGURU_FORMAT, rotation='500 MB')
 
 # Instância API
-app = FastAPI(title='API Plug and Play', description="API para criação rápida de projetos usando FastAPI.",
-              version=__version__)
+app = FastAPI(title='API Plug and Play',
+              description="API para criação rápida de projetos usando FastAPI.",
+              version=__version__,
+              root_path=envs.FASTAPI_ROOT_PATH)
 
 # CORS
 app.add_middleware(
