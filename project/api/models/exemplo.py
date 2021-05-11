@@ -8,8 +8,8 @@ class GetExampleResponse(SuccessResponse):
     exemplo_out: str = Field(...,
                              description="String em upper case.", example="STRING")
     get_message: str = Field("Request de exemplo GET.",
-                              description="Mensagem de exemplo.",
-                              example="Request de exemplo GET.")
+                             description="Mensagem de exemplo.",
+                             example="Request de exemplo GET.")
 
 
 class PostExampleInput(BaseModel):
@@ -24,4 +24,3 @@ class PostExampleResponse(SuccessResponse):
     post_message: str = Field("Request de exemplo POST.",
                               description="Mensagem de exemplo.",
                               example="Request de exemplo POST.")
-

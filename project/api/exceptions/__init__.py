@@ -15,7 +15,6 @@ class APIException(Exception):
         self.mensagem = mensagem
 
 
-# Substituição/criação das exceptions
 class ExceptionHandler:
 
     def __init__(self, app: FastAPI):
@@ -35,7 +34,9 @@ class ExceptionHandler:
 
     @staticmethod
     async def http_excep(requisicao: Request, excecao: HTTPException):
-        mensagem = {404: "Não encontrado", 500: "Erro interno", 400: "Bad Request"}
+        mensagem = {404: "Não encontrado",
+                    500: "Erro interno",
+                    400: "Bad Request"}
         return JSONResponse(
             status_code=excecao.status_code,
             content={

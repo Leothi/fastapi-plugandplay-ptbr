@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM python:3.8-buster
 
 WORKDIR /code
 
@@ -14,5 +14,6 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 COPY . /code
 
 ENV LANG C.UTF-8
+EXPOSE 8080
 
 CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-c", "api/settings.py", "api:app"]
