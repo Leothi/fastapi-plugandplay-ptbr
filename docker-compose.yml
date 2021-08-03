@@ -7,12 +7,7 @@ services:
       context: ./project
       dockerfile: Dockerfile
     environment:
-      GUNICORN_RELOAD: "False"
       RUNNING_ENV: "prod"
-      LOG_LOCAL: "False" # Desabilita logging externo de IP, id
-      LOG_LEVEL: 20
-      LOGGER_SWAGGER: "False" # Desabilita logging para /docs /favicon etc
-      FASTAPI_ROOT_PATH: ""
     ports:
       - 8080:8080
     networks:

@@ -2,3 +2,5 @@ cloudrun-*.yaml
 app.yaml
 .env
 Dockerfile
+logs/
+.dockerignore
