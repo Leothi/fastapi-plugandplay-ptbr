@@ -1,6 +1,6 @@
 FROM python:3.8-buster
 
-WORKDIR /code
+WORKDIR /project
 
 RUN apt-get update && apt-get install -y \
     python3 \
@@ -8,10 +8,10 @@ RUN apt-get update && apt-get install -y \
     python3-setuptools \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt /code
+COPY requirements.txt /project
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-COPY . /code
+COPY . /project
 
 ENV LANG C.UTF-8
 EXPOSE 8080
